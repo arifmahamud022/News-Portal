@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Admin Dashboard</title>
+    <%- include('adminlink'); -%>
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <%- include('adminheader'); -%>
+        <%- include('sidebar'); -%>
+
+
+
+
+
+
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-sub-header">
+                                <h3 class="page-title">Welcome Admin!</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Admin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12  d-flex justify-content-center">
+                        <% if(flashsms == ''){ }else{ %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong><%= flashsms %></strong>
+                        </div>
+                        <% }; %>
+                        <% if(flasherr == ''){ }else{ %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong> <%= flasherr %></strong>
+                        </div>
+                        <% }; %>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <% if(errors){ errors.forEach(function(error){ %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong><%= error.msg %></strong>
+                        </div>
+                        <% }); }; %>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <form class="card-body" action="/admin/post-image" method="post"
+                                enctype='multipart/form-data'>
+                                <input type="hidden" name="id" value="<%= post._id %>">
+                                <div class="mb-3 row">
+                                    <div class="col-md-12">
+                                        <img src="<%= baseUrl; %>/uploads/<%= post.featured_image %>"
+                                            alt="featured image" style="width: 300px;">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-md-2 col-form-label">Featured Image</label>
+                                    <div class="col-md-10">
+                                        <input type="file" class="filestyle" data-input="false"
+                                            name="featured_image" data-buttonname="btn-secondary">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form class="card-body" action="/admin/post-update" method="post">
+                                <input type="hidden" name="id" value="<%= post._id %>">
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-md-2 col-form-label">Title</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" value="<%= post.title %>"
+                                            name="title">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-md-10">
+                                        <textarea id="elm1"
+                                            name="description"><%= post.description %></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Category</label>
+                                    <div class="col-md-10">
+                                        <select class="form-select" name="category">
+                                            <option value="">Selecte Category</option>
+                                            <% if(categoryList){ categoryList.forEach(function(cat){ %>
+                                            <option value="<%= cat._id %>" <% if(post.category == cat._id){ %>
+                                                selected <% } %>>
+                                                <%= cat.title %></option>
+                                            <% });  }; %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-md-2 col-form-label">Tag</label>
+                                    <div class="col-md-10">
+                                        <textarea class="form-control"
+                                            name="tag"><%= post.description %></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="username" class="col-md-2 col-form-label">SEO
+                                        Description</label>
+                                    <div class="col-md-10">
+                                        <textarea id="seo_description" name="seo_description"
+                                            class="form-control" maxlength="225" rows="3"
+                                            placeholder="This seo description has a limit of 130 chars."
+                                            spellcheck="false"><%= post.seo_description %></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="email" class="col-md-2 col-form-label">SEO Keywords</label>
+                                    <div class="col-md-10">
+                                        <textarea id="seo_keywords" name="seo_keywords" class="form-control"
+                                            maxlength="225" rows="3"
+                                            placeholder="This seo keywords has a limit of 150 chars."
+                                            spellcheck="false"><%= post.seo_keywords %></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary mt-2">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <%- include('adminfooter'); -%>
+        </div>
+    </div>
+
+    <script src="<%= baseUrl %>/admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/js/feather.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/apexcharts.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/chart-data.js"></script> 
+    <script src="<%= baseUrl %>/admin/assets/js/script.js"></script>
+</body>
+
+</html>

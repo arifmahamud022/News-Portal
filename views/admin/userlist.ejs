@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Admin Dashboard</title>
+    <%- include('adminlink'); -%>
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <%- include('adminheader'); -%>
+        <%- include('sidebar'); -%>
+
+
+
+
+
+
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-sub-header">
+                                <h3 class="page-title">Welcome Admin!</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Admin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    
+                </div>
+            </div>
+           <%- include('adminfooter'); -%>
+        </div>
+    </div>
+
+    <script src="<%= baseUrl %>/admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/js/feather.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/apexcharts.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/chart-data.js"></script> 
+    <script src="<%= baseUrl %>/admin/assets/js/script.js"></script>
+</body>
+
+</html>

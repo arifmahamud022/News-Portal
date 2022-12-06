@@ -1,0 +1,39 @@
+{
+  "name": "node-js-practice-revise",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -e js,ejs,json ./bin/www",
+    "tailwind": "postcss ./public/assets/css/main.css -o ./public/assets/style.css --watch"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "~4.16.1",
+    "express-deeptrace": "^1.1.5",
+    "express-device": "^0.4.2",
+    "express-flash": "^0.0.2",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.3",
+    "express-useragent": "^1.0.15",
+    "express-validator": "^6.14.2",
+    "flash-message": "^2.0.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^6.7.5",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "postcss-cli": "^10.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
+  }
+}

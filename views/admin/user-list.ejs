@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Admin Dashboard</title>
+    <%- include('adminlink'); -%>
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <%- include('adminheader'); -%>
+        <%- include('sidebar'); -%>
+
+
+
+
+
+
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-sub-header">
+                                <h3 class="page-title">Welcome Admin!</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Admin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12  d-flex justify-content-center">
+    
+                        <% if(flashsms == ''){ }else{ %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong><%= flashsms %></strong>
+                        </div>
+                        <% }; %>
+                        <% if(flasherr == ''){ }else{ %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong> <%= flasherr %></strong>
+                        </div>
+                        <% }; %>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+    
+                                <h4 class="card-title">User List</h4>
+                                <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if(users){ users.forEach(function(user){ %>
+                                        <tr id="<%= user._id %>" baseurl="<%= baseUrl %>">
+                                            
+                                            <td><%= user.name %></td>
+                                            <td><%= user.username %></td>
+                                            <td><%= user.email %></td>
+                                            <td><%= user.role %></td>
+                                            <td>
+                                                <div class="inline-flex rounded-md shadow-sm" role="group">
+                                                    <button type="button"
+                                                        class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-transparent rounded-l-lg border border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                                                        <a
+                                                            href="/admin/user-edit?id=<%= user._id %>">Edit</a>
+                                                    </button>
+                                                    <button type="button"
+                                                        class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-transparent rounded-r-md border border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700 remove">
+                                                        Delete
+                                                    </button>
+                                                </div>
+    
+                                            </td>
+                                        </tr>
+                                        <% }); }else{ %>
+                                        <tr>
+                                            <td class="text-center" colspan="5">User not found</td>
+                                        </tr>
+                                        <% }; %>
+                                    </tbody>
+                                </table>
+    
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+            </div>
+           <%- include('adminfooter'); -%>
+        </div>
+    </div>
+
+    <script src="<%= baseUrl %>/admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/js/feather.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/apexcharts.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/chart-data.js"></script> 
+    <script src="<%= baseUrl %>/admin/assets/js/script.js"></script>
+    <link href="<%= baseUrl %>/admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+    rel="stylesheet" type="text/css" />
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- sweetalert2 Css-->
+   <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+   <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+</body>
+
+</html>

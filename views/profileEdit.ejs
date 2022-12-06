@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile Card</title>
+	<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+	<div class="container">
+     	<div class="row d-flex justify-content-center">
+            <div class="col-md-10 mt-5 pt-5">
+             	<div class="row z-depth-3">
+                 	<div class="col-sm-4 bg-info rounded-left">
+        		        <div class="card-block text-center text-white">
+                            <form class="card-body" action="/profile-image" method="post" enctype='multipart/form-data'>
+            <input type="hidden" name="id" value="">
+            <div class="mb-3 row">
+                <div class="col-md-12">
+                    <img src=""
+                        alt="featured image" style="width: 300px;">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="name" class="col-md-2 col-form-label">Featured Image</label>
+                <div class="col-md-10">
+                    <input type="file" class="filestyle" data-input="false"
+                        name="featured_image" data-buttonname="btn-secondary">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                </div>
+            </div>
+        </form>
+                		</div>
+            		</div>
+            		<div class="col-sm-8 bg-white rounded-right">
+                    	
+                    	
+                        <form class="card-body" action="/admin/user-update" method="post">
+                            <h4 class="card-title">User Edit</h4>
+                            <input type="hidden" name="id" value="">
+                            
+                            <div class="mb-3 row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" value=""
+                                        name="name">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="example-search-input"
+                                    class="col-md-2 col-form-label">Username</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="search"
+                                        value="" name="username">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="example-email-input"
+                                    class="col-md-2 col-form-label">Email</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="email" value=""
+                                        name="email">
+                                </div>
+                            </div>
+                
+                            
+                            <div class="mb-3 row">
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                   		
+                	   	
+                	    
+              		</div>
+             	</div>
+            </div>
+        </div>
+	</div>
+</body>
+</html>
+

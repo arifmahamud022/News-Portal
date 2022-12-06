@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Admin Dashboard</title>
+    <%- include('adminlink'); -%>
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <%- include('adminheader'); -%>
+        <%- include('sidebar'); -%>
+
+
+
+
+
+
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-sub-header">
+                                <h3 class="page-title">Welcome Admin!</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Admin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <% if(errors){ errors.forEach(function(error){ %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong><%= error.msg %></strong>
+                        </div>
+                        <% }); }; %>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <form class="card-body" action="/admin/user-add" method="post">
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-md-2 col-form-label">First Name</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" value="" name="first_name">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-md-2 col-form-label">Last Name</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" value="" name="last_name">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="username" class="col-md-2 col-form-label">Username</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="search" value="" name="username">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="email" class="col-md-2 col-form-label">Email</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="email" value="" name="email">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="password" class="col-md-2 col-form-label">Password</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="password" value="" name="password">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Role</label>
+                                    <div class="col-md-10">
+                                        <select class="form-select" name="role">
+                                            <option>Selecte user role</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">User</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+
+            </div>
+           <%- include('adminfooter'); -%>
+        </div>
+    </div>
+
+    <script src="<%= baseUrl %>/admin/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/js/feather.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/apexcharts.min.js"></script>
+    <script src="<%= baseUrl %>/admin/assets/plugins/apexchart/chart-data.js"></script> 
+    <script src="<%= baseUrl %>/admin/assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<div class="col-12">
+    <div class="card">
+        <form class="card-body" action="/admin/post-image" method="post"
+            enctype='multipart/form-data'>
+            <input type="hidden" name="id" value="">
+            <div class="mb-3 row">
+                <div class="col-md-12">
+                    <img src=""
+                        alt="featured image" style="width: 300px;">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="name" class="col-md-2 col-form-label">Featured Image</label>
+                <div class="col-md-10">
+                    <input type="file" class="filestyle" data-input="false"
+                        name="featured_image" data-buttonname="btn-secondary">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                </div>
+            </div>
+        </form>
+
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mt-2">Update</button>
+                </div>
+            </div>
+        </form>
+
+        <form class="card-body" action="/admin/user-update" method="post">
+            <h4 class="card-title">User Edit</h4>
+            <input type="hidden" name="id" value="">
+            
+            <div class="mb-3 row">
+                <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" value=""
+                        name="name">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="example-search-input"
+                    class="col-md-2 col-form-label">Username</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="search"
+                        value="" name="username">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="example-email-input"
+                    class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="email" value=""
+                        name="email">
+                </div>
+            </div>
+
+            
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
